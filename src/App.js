@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Profile from './screens/Profile';
+import Calculator from './screens/Calculator';
 
 class App extends React.Component {
 
@@ -9,7 +9,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <Profile />
+                    <Calculator />
                 </header>
             </div>
         );
