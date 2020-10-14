@@ -22,6 +22,12 @@ class App extends React.Component {
         })
     }
 
+    changeScreenProfile = () =>  {
+        this.setState({
+            ecranAAfficher: 'Profile'
+        })
+    }
+
     render() {
 
         let ecranElement = null;
@@ -31,7 +37,7 @@ class App extends React.Component {
             );
         } else if (this.state.ecranAAfficher == 'Calculator') {
             ecranElement = (
-                <Calculator />
+                <Calculator tata={this.changeScreenProfile} />
             );
         } else if (this.state.ecranAAfficher == 'Profile') {
             ecranElement = (
