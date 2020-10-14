@@ -6,12 +6,12 @@ class Profile extends React.Component {
         return (
             <div>
                 <p>
-                    Bonjour Michael
+                    Bonjour {this.props.toto}
                 </p>
                 <input type="text" value="michael@toto.com" placeholder="Email ..." /><br />
                 <input type="text" value="65" placeholder="Age ..." /><br />
                 <button>Enregistrer</button><br />
-                <button>Calculer mon repas</button>
+                <button onClick={this.props.coco}>Calculer mon repas</button>
             </div>
         );
     }

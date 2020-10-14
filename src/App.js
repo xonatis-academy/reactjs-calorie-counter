@@ -8,7 +8,18 @@ import Register from './screens/Register';
 class App extends React.Component {
 
     state = {
-        ecranAAfficher: 'Register'
+        ecranAAfficher: 'Profile',
+        connectedUser : {
+            firstname: 'Sophie',
+            age: 65,
+            email: 'jean@toto.com'
+        }
+    }
+
+    changeScreenCalculator = () => {
+        this.setState({
+            ecranAAfficher: 'Calculator'
+        })
     }
 
     render() {
@@ -24,7 +35,7 @@ class App extends React.Component {
             );
         } else if (this.state.ecranAAfficher == 'Profile') {
             ecranElement = (
-                <Profile />
+                <Profile toto={this.state.connectedUser.firstname} coco={this.changeScreenCalculator} />
             );
         } else if (this.state.ecranAAfficher == 'Register') {
             ecranElement = (
