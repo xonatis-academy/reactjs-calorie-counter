@@ -5,7 +5,8 @@ import './App.css';
 class App extends React.Component {
 
     state = {
-        prenom: 'Joanne'
+        prenom: 'Joanne',
+        nom: 'Dupont'
     }
 
     render() {
@@ -14,7 +15,7 @@ class App extends React.Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>
-                        Bienvenue {this.state.prenom}
+                        Bienvenue {this.state.prenom} {this.state.nom}
             </p>
                     <a
                         className="App-link"
