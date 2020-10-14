@@ -24,10 +24,23 @@ class App extends React.Component {
     }
 
     render() {
+        let block = (
+            <div>
+                <p>
+                    Bonjour, vous etes majeur
+                </p>
+            </div>
+        );
+
+        if (this.state.age < 18) {
+            block = null;
+        }
+
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
+                    {block}
                     <p>
                         Bienvenue {this.state.prenom} {this.state.nom}, qui a {this.state.age} ans
             </p>
