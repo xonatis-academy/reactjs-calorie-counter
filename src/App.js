@@ -6,7 +6,8 @@ class App extends React.Component {
 
     state = {
         prenom: 'Joanne',
-        nom: 'Dupont'
+        nom: 'Dupont',
+        age: 0
     }
 
     changerdidentite = () => {
@@ -15,14 +16,22 @@ class App extends React.Component {
         });
     }
 
+    changerAge = (event) => {
+        const a = event.target.value;
+        this.setState({
+            age: a
+        })
+    }
+
     render() {
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>
-                        Bienvenue {this.state.prenom} {this.state.nom}
+                        Bienvenue {this.state.prenom} {this.state.nom}, qui a {this.state.age} ans
             </p>
+                    <input type="text" placeholder="Entrez votre age" value={this.state.age} onChange={this.changerAge}  />
                     <button onClick={this.changerdidentite}>Changer d'identité</button>
                     <a
                         className="App-link"
