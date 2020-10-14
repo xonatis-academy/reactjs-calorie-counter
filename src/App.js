@@ -9,6 +9,12 @@ class App extends React.Component {
         nom: 'Dupont'
     }
 
+    changerdidentite = () => {
+        this.setState({
+            prenom: 'Andrew'
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -17,6 +23,7 @@ class App extends React.Component {
                     <p>
                         Bienvenue {this.state.prenom} {this.state.nom}
             </p>
+                    <button onClick={this.changerdidentite}>Changer d'identité</button>
                     <a
                         className="App-link"
                         href="https://reactjs.org"
