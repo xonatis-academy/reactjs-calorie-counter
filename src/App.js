@@ -10,9 +10,10 @@ class App extends React.Component {
     state = {
         ecranAAfficher: 'Profile',
         connectedUser : {
-            firstname: 'Sophie',
+            firstname: 'Jean',
             age: 65,
-            email: 'jean@toto.com'
+            email: 'jean@toto.com',
+            password: 'tiptop'
         }
     }
 
