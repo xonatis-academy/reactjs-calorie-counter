@@ -44,8 +44,23 @@ export default class UserService {
         return false;
     }
     
-    add() {
-        
+    // precondition : username: string, password: string, firstname: string
+    // postcondition : ajouter 1 user, true si success false sinon: boolean
+    add(usernameToAdd, passwordToAdd, firstnameToAdd) {
+        for (const a of this.users) {
+            if (a.username == usernameToAdd) {
+                return false;
+            }
+        }
+
+        let newUser = {
+            firstname: firstnameToAdd,
+            password: passwordToAdd,
+            username: usernameToAdd
+        };
+
+        this.users.push(newUser);
+        return true;
     }
 
 }
