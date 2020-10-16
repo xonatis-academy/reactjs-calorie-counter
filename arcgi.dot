@@ -1,0 +1,15 @@
+digraph {
+    "screens" -> "Login"
+    "screens" -> "Register"
+    "screens" -> "Calculator"
+    "screens" -> "Profile"
+
+    "context" -> "UserService"
+    "context" -> "IngredientService"
+
+    "App" -> "Login"
+    "App" -> "Register"
+    "App" -> "Calculator"
+    "App" -> "Profile"
+    "App" -> "context"
+}
