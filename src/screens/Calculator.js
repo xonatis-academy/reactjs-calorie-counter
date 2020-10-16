@@ -5,12 +5,38 @@ class Calculator extends React.Component {
 
     static contextType = ServiceContext;
 
+    state = {
+        selectedName: null,
+        selectedIngredientCalorie: 0,
+        totalCalorie: 0,
+        quantity: 0
+    }
+
+    changeQuantity = (event) => {
+        this.setState({
+            quantity: event.target.value
+        })
+    }
+
+    selectIngredient = (toutIngredient) => () => {
+        this.setState({
+            selectedName: toutIngredient.name,
+            selectedIngredientCalorie: toutIngredient.calorieParGram
+        })
+    }
+
+    addToMeal = () => {
+        this.setState({
+            totalCalorie: this.state.totalCalorie + this.state.quantity * this.state.selectedIngredientCalorie
+        })
+    }
+
     render() {
         let ingredients = this.context.ingredientService.list();
         let listeDeBoutonsPourLesIngredients = [];
         for (const a of ingredients) {
             let bouton = (
-                <button>{a.name} ({a.calorieParGram})</button>
+                <button onClick={this.selectIngredient(a)}>{a.name} ({a.calorieParGram})</button>
             );
             listeDeBoutonsPourLesIngredients.push(bouton);
         }
@@ -18,11 +44,11 @@ class Calculator extends React.Component {
         return (
             <div>
                 {listeDeBoutonsPourLesIngredients}<br /><br />
-                Tomate<br />
-                <input type="text" value="123" placeholder="Quantité ..." /><br />
-                <button>Ajouter au plat</button><br />
+                {this.state.selectedName}<br />
+                <input type="text" value={this.state.quantity} onChange={this.changeQuantity} placeholder="Quantité ..." /><br />
+                <button onClick={this.addToMeal}>Ajouter au plat</button><br />
                 <p>
-                    140 Kcal
+                    {this.state.totalCalorie} Kcal
                 </p>
                 <button onClick={this.props.coucou}>Retour</button>
             </div>
