@@ -26,6 +26,8 @@ class Login extends React.Component {
     checkIfUserCanConnect = () => {
         let canConnect = this.context.userService.connect(this.state.username, this.state.password);
         if (canConnect) {
+            let user = this.context.userService.get(this.state.username);
+            this.props.changeConnectedUserForApp(user);
             this.props.goToProfileBox();
         } else {
             this.setState({

@@ -11,10 +11,15 @@ class App extends React.Component {
         ecranAAfficher: 'Login',
         connectedUser : {
             firstname: 'Jean',
-            age: 65,
-            email: 'jean@toto.com',
+            username: 'jean@toto.com',
             password: 'tiptop'
         }
+    }
+
+    changeConnectedUser = (toto) => {
+        this.setState({
+            connectedUser: toto
+        })
     }
 
     changeScreenCalculator = () => {
@@ -46,7 +51,7 @@ class App extends React.Component {
         let ecranElement = null;
         if (this.state.ecranAAfficher == 'Login') {
             ecranElement = (
-                <Login goToProfileBox={this.changeScreenProfile} goToRegisterBox={this.changeScreenRegister} />
+                <Login changeConnectedUserForApp={this.changeConnectedUser} goToProfileBox={this.changeScreenProfile} goToRegisterBox={this.changeScreenRegister} />
             );
         } else if (this.state.ecranAAfficher == 'Calculator') {
             ecranElement = (
