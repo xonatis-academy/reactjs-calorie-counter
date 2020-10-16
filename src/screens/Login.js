@@ -8,8 +8,8 @@ class Login extends React.Component {
                 Login<br />
                 <input type="text" placeholder="Email ..." /><br />
                 <input type="password" placeholder="Mot de passe ..." /><br />
-                <button>S'identifier</button><br />
-                <button>Créer un compte</button>
+                <button onClick={this.props.goToProfileBox}>S'identifier</button><br />
+                <button onClick={this.props.goToRegisterBox}>Créer un compte</button>
             </div>
         );
     }

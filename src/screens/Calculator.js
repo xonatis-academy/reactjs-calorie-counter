@@ -15,11 +15,10 @@ class Calculator extends React.Component {
                 <p>
                     140 Kcal
                 </p>
-                <button onClick={this.props.tata}>Retour</button>
+                <button onClick={this.props.coucou}>Retour</button>
             </div>
         );
     }
 }
-
 
 export default Calculator;

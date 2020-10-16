@@ -10,8 +10,8 @@ class Register extends React.Component {
                 <input type="text" placeholder="Age ..." /><br />
                 <input type="text" placeholder="Email ..." /><br />
                 <input type="text" placeholder="Mot de passe ..." /><br /><br />
-                <button>S'inscrire</button><br />
-                <button>Retour</button>
+                <button onClick={this.props.goToLoginBox}>S'inscrire</button><br />
+                <button onClick={this.props.goToLoginBox}>Retour</button>
             </div>
         );
     }

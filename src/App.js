@@ -8,7 +8,7 @@ import Register from './screens/Register';
 class App extends React.Component {
 
     state = {
-        ecranAAfficher: 'Profile',
+        ecranAAfficher: 'Login',
         connectedUser : {
             firstname: 'Jean',
             age: 65,
@@ -29,24 +29,36 @@ class App extends React.Component {
         })
     }
 
+    changeScreenRegister = () => {
+        this.setState({
+            ecranAAfficher: 'Register'
+        })
+    }
+
+    changeScreenLogin = () => {
+        this.setState({
+            ecranAAfficher: 'Login'
+        })
+    }
+
     render() {
 
         let ecranElement = null;
         if (this.state.ecranAAfficher == 'Login') {
             ecranElement = (
-                <Login />
+                <Login goToProfileBox={this.changeScreenProfile} goToRegisterBox={this.changeScreenRegister} />
             );
         } else if (this.state.ecranAAfficher == 'Calculator') {
             ecranElement = (
-                <Calculator tata={this.changeScreenProfile} />
+                <Calculator coucou={this.changeScreenProfile} />
             );
         } else if (this.state.ecranAAfficher == 'Profile') {
             ecranElement = (
-                <Profile toto={this.state.connectedUser.firstname} coco={this.changeScreenCalculator} />
+                <Profile goToLoginBox={this.changeScreenLogin} toto={this.state.connectedUser.firstname} coco={this.changeScreenCalculator} />
             );
         } else if (this.state.ecranAAfficher == 'Register') {
             ecranElement = (
-                <Register />
+                <Register goToLoginBox={this.changeScreenLogin} />
             );
         }
 
