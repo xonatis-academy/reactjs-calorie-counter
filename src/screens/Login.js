@@ -1,10 +1,14 @@
 import React from 'react';
+import ServiceContext from '../ServiceContext';
 
 class Login extends React.Component {
 
+    static contextType = ServiceContext;
+
     state = {
         username: '',
-        password: ''
+        password: '',
+        message: ''
     }
 
     changeUsername = (event) => {
@@ -19,13 +23,25 @@ class Login extends React.Component {
         })
     }
 
+    checkIfUserCanConnect = () => {
+        let canConnect = this.context.userService.connect(this.state.username, this.state.password);
+        if (canConnect) {
+            this.props.goToProfileBox();
+        } else {
+            this.setState({
+                message: 'Pfffff .... '
+            })
+        }
+    }
+
     render() {
         return (
             <div>
                 Login<br />
+                <div>{this.state.message}</div>
                 <input type="text" placeholder="Email ..." value={this.state.username} onChange={this.changeUsername} /><br />
                 <input type="password" placeholder="Mot de passe ..." value={this.state.password} onChange={this.changePassword} /><br />
-                <button onClick={this.props.goToProfileBox}>S'identifier</button><br />
+                <button onClick={this.checkIfUserCanConnect}>S'identifier</button><br />
                 <button onClick={this.props.goToRegisterBox}>Créer un compte</button>
             </div>
         );
